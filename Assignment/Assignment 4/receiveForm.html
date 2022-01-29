@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+    url
+
+    <script>
+        $.ajax(SubmitEvent)({
+            url: 'file:///C:/Users/11204/Desktop/assignment4/receiveForm.html',
+            type: 'POST',
+            dataType: 'json',
+            contentType: "application/json",
+            async: false,
+            data: JSON.stringify(obj),
+            xhrFields: {
+                withCredentials: true
+            },
+            success: function(result) {
+                if (result == 1) {
+                    console.log("Sumbit success");
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log('XMLHttpRequest:');
+                console.log(XMLHttpRequest);
+                alert('Internet problems: refresh to solve');
+            }
+        });
+
+        function getData() {
+            var xhttp = new XMLHttpRequest();
+            console.log('here 1');
+            xhttp.onreadystatechange = function() {
+                console.log('here 2');
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log('here 3');
+                    var json = JSON.parse(this.response);
+                    var content = "";
+                    for (var i = 0; i < json.data.length; i++) {
+                        content += "<tr><td>" + json.data[i].first_name + "</td><td>" + json.data[i].last_name + "</td></tr>";
+                    }
+                    var userTable = document.getElementById("userTable");
+                    userTable.tBodies[0].innerHTML = content;
+                    userTable.style.display = block;
+                }
+            }
+            xhttp.open("GET", url, true);
+            xhttp.send();
+        }
+    </script>
+</body>
+
+
+
+</html>

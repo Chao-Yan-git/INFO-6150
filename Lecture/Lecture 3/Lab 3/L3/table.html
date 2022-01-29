@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+        <style>
+
+
+            table{
+                font-family: Arial, Helvetica, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            td, th{
+
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+
+            }
+
+            tr:nth-child(even){
+                background-color: #dddddd;
+            }
+        </style>
+    </head>
+
+    <script src="table.js"></script>
+
+
+    <body>
+
+        <h2> TABLE</h2>
+
+        <table id="companyTable">
+
+            <thead>
+
+                <tr>
+                    <th>Company Name</th>
+                    <th>Company Location</th>
+                    <th>Company Number</th>
+                </tr>
+
+            </thead>
+            <tbody>
+
+                <tr>
+
+                    <td>Microsoft</td>
+                    <td>United States</td>
+                    <td>3668678638</td>
+
+                </tr>
+                <tr>
+                    <td>Google</td>
+                    <td>India</td>
+                    <td>3828393303</td>
+                   </tr>
+
+
+            </tbody>
+            <tfoot>
+
+                <tr>
+                    <td colspan="3">
+                        <input type="submit" value="Add Row" onclick="addRow()">
+                    </td>
+                </tr>
+            </tfoot>
+
+
+
+
+        </table>
+
+    </body>
+</html>

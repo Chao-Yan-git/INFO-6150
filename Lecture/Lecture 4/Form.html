@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Feedback</title>
+	<style>
+		label {
+			float: left;
+			width: 150px;
+		}
+
+		#container {
+			width: 700px;
+			margin: auto;
+			background-color: beige;
+		}
+
+		main {
+			padding: 50px;
+		}
+
+		#email_hint {
+			font-style: italic;
+			color: red;
+			font-size: smaller;
+		}
+
+		#phone_hint {
+			font-style: italic;
+			color: red;
+			font-size: smaller;
+		}
+
+		#hint {
+			font-style: italic;
+			color: red;
+			font-size: smaller;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="container">
+
+		<main>
+			<h2>Feedback</h2>
+			<h3>Love something? Hate something? Let us know!</h3>
+			Note : Fields marked with an asterisk(*) are mandatory
+			<br><br>
+			<form method="post" novalidate>
+				<label>Title*:</label>
+				<div style="display: inline-block;" id="topRadio">
+					<input type="radio" name="title" id="miss" value="miss" checked required="required" />Miss
+					<input type="radio" name="title" id="mr" value="mr" required="required" />Mr.
+					<input type="radio" name="title" id="mrs" value="mrs" required="required" />Mrs.
+				</div>
+				<br><br>
+				<label for="firstName">First Name*:</label>
+				<input type="text" name="firstName" id="firstName" placeholder="First Name" />
+				<br><br>
+
+
+				<label for="lastName">Last Name*:</label>
+				<input type="text" name="lastName" id="lastName" placeholder="Last Name" />
+				<br><br>
+
+
+				<label for="email">Email Id*:</label>
+				<input type="email" onblur="emailCheck()" onkeyup="emailCheck()" name="email" id="email"
+					placeholder="yourname@domain.com" />
+				<span id="email_hint"></span>
+				<br><br>
+
+
+				<label for="phone">Phone Number*:</label>
+				<input type="text" onblur="phoneCheck()" onkeyup="phoneCheck()" name="phoneNumber" id="phone"
+					placeholder="xxx-xxx-xxxx" />
+				<!--  -->
+				<span id="phone_hint"></span>
+				<br><br>
+
+				<label for="zipcode">ZipCode*:</label>
+				<input type="text" onblur="hint()" name="zipcode" id="zipcode" placeholder="xxxxx" />
+				<span id="hint"></span>
+				<br><br>
+
+				<label for="zipcode">How did you hear*:</label>
+				<div style="display: inline-block;" id="cenRadio">
+					<input type='checkbox' name="source" value="facebook" checked /> Facebook
+					<input type='checkbox' name="source" value="google" /> Google
+					<input type='checkbox' name="source" value="yelp" /> Yelp
+				</div>
+				<br><br>
+
+				<label for="comments">Comments*:</label>
+				<textarea name="text" id="comments" placeholder="Your comments" rows="5" cols="25"></textarea>
+				<br><br>
+
+				<label for="selector">Drinks*:</label>
+				<div style="display: inline-block;" id="cenRadio">
+					<select id="selector" onchange="showoptions()">
+						<option value="1">------1------</option>
+						<option value="2">------2------</option>
+						<option value="3">------3------</option>
+						<option value="4">------4------</option>
+						<option value="5">------5------</option>
+					</select>
+				</div><br>
+				<div id="divBox"><input type='checkbox' value='1' />First</div>
+				<br>
+				<div id="extra"></div>
+
+				<br>
+				<button type="button" id="btn" onclick="subBtn()">提交</button>
+				<input type="Reset">
+
+				<br><br>
+
+			</form>
+		</main>
+	</div>
+
+	<script>
+		function checkEmail(strEmail) {
+			var emailReg = /^([\s\S])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/;
+			if (emailReg.test(strEmail)) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		function emailCheck() {
+			var emailValue = document.getElementById("email").value;
+			var email_hint = document.getElementById("email_hint");
+			var flag = checkEmail(emailValue);
+			if (flag) {
+				email_hint.innerHTML = "";
+				return true;
+			} else {
+				email_hint.innerHTML = "Incorrect Format. Please check.";
+				return false;
+			}
+		}
+
+		function checkMobile(strMobile) {
+			var regu = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
+			var re = new RegExp(regu);
+			if (re.test(strMobile)) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		function phoneCheck() {
+			var phone = document.getElementById("phone").value;
+			var phone_hint = document.getElementById("phone_hint");
+			var flag = checkMobile(phone);
+			if (flag) {
+				phone_hint.innerHTML = "";
+				return true;
+			} else {
+				phone_hint.innerHTML = "Incorrect Format. Please check.";
+				return false;
+			}
+		}
+
+		function hint() {
+			var value = document.getElementById("zipcode").value;
+			var hint = document.getElementById("hint");
+			if (value.length == 5) {
+				hint.innerHTML = "";
+				return true;
+			} else {
+				hint.innerHTML = "Incorrect Format. Please check.";
+				return false;
+			}
+		}
+
+		function showoptions() {
+			var select = document.getElementById("selector");
+			var val = select.value;
+			var str = "";
+			if (val == 1) {
+				str = "<input type='checkbox' value='1'/>First"
+			}
+			if (val == 2) {
+				str = "<input type='checkbox' value='1'/>First&nbsp;&nbsp;<input type='checkbox' value='2'/>Second"
+			}
+			if (val == 3) {
+				str =
+					"<input type='checkbox' value='1'/>First&nbsp;&nbsp;<input type='checkbox' value='2'/>Second&nbsp;&nbsp;<input type='checkbox' value='3'/>Third"
+			}
+			if (val == 4) {
+				str =
+					"<input type='checkbox' value='1'/>First&nbsp;&nbsp;<input type='checkbox' value='2'/>Second&nbsp;&nbsp;<input type='checkbox' value='3'/>Third&nbsp;&nbsp;<input type='checkbox' value='4'/>Fourth"
+			}
+			if (val == 5) {
+				str =
+					"<input type='checkbox' value='1'/>First&nbsp;&nbsp;<input type='checkbox' value='2'/>Second&nbsp;&nbsp;<input type='checkbox' value='3'/>Third&nbsp;&nbsp;<input type='checkbox' value='4'/>Fourth&nbsp;&nbsp;<input type='checkbox' value='5' id='yes' onclick='ex(this)'/>Fifth"
+			}
+			document.getElementById("divBox").innerHTML = str;
+		}
+
+		function ex(a) {
+			var addstr = "";
+			if (a.checked) {
+				addstr = "<label>Extra Information*:</label><input type='text' id='infor'><br>";
+			}
+			document.getElementById("extra").innerHTML = addstr;
+		}
+
+		function subBtn() {
+			var form = {}
+			form.cheakBox = []
+			form.cheakBoxTwo = []
+			form.infor = ''
+			var judge = false
+			var emailReg = /^([\s\S])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/; //邮箱验证
+			// var phoneCes = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/; //手机号验
+			var zip = document.getElementById("zipcode").value;
+			var radio_tag = document.getElementById('topRadio').getElementsByTagName('input');
+			for (var i = 0; i < radio_tag.length; i++) {
+				if (radio_tag[i].checked) {
+					form.title = radio_tag[i].value;
+				}
+			}
+			// var radio_cen = document.getElementById('cenRadio').getElementsByTagName('input');
+			// for (var i = 0; i < radio_cen.length; i++) {
+			// 	if (radio_cen[i].checked) {
+			// 		form.hear = radio_cen[i].value;
+			// 	}
+			// }
+			var check = document.getElementById('divBox').getElementsByTagName('input');
+			for (var i = 0; i < check.length; i++) {
+				if (check[i].checked)
+					form.cheakBox.push(check[i].value);
+			}
+			var checkTwo = document.getElementById('cenRadio').getElementsByTagName('input');
+			for (var i = 0; i < checkTwo.length; i++) {
+				if (checkTwo[i].checked)
+					form.cheakBoxTwo.push(checkTwo[i].value);
+			}
+			for (var j = 0; j < form.cheakBox.length; j++) {
+				if (form.cheakBox[j] == '5') {
+					form.infor = document.getElementById('infor').value
+					judge = true
+					if (document.getElementById('infor').value == '') {
+						alert('Check mandatory area!')
+					} else if (document.getElementById('firstName').value == '') {
+						alert('Check mandatory area!')
+					} else if (document.getElementById('lastName').value == '') {
+						alert('Check mandatory area!')
+					} else if (document.getElementById('email').value == '') {
+						alert('Check mandatory area!')
+					} else if (!emailReg.test(document.getElementById('email').value)) {
+						alert('2')
+					} else if (document.getElementById('phone').value == '') {
+						alert('Check mandatory area!')
+					} else if (document.getElementById('zipcode').value == '') {
+						alert('Check mandatory area!')
+					} else if (zip.length < 5) {
+						alert('1')
+					} else if (document.getElementById('comments').value == '') {
+						alert('Check mandatory area!')
+					} else {
+						form.firstName = document.getElementById('firstName').value;
+						form.lastName = document.getElementById('lastName').value;
+						form.email = document.getElementById('email').value;
+						form.phone = document.getElementById('phone').value;
+						form.zipcode = document.getElementById('zipcode').value;
+						form.comments = document.getElementById('comments').value;
+						form.selector = document.getElementById("selector").value;
+						console.log(form.infor)
+						// if (judge == false) {
+						// 	form.infor = 'null';
+						// } else {
+						// 	form.infor = document.getElementById('infor').value;
+						// }
+						localStorage.setItem('form', JSON.stringify(form));
+						window.location.href = 'two.html'
+						// console.log(JSON.stringify(form))
+						// console.log(form)
+
+					}
+				} else {
+					form.infor = ''
+					if (document.getElementById('firstName').value == '') {
+						alert('Check mandatory area!')
+					} else if (document.getElementById('lastName').value == '') {
+						alert('Check mandatory area!')
+					} else if (document.getElementById('email').value == '') {
+						alert('Check mandatory area!')
+					} else if (!emailReg.test(document.getElementById('email').value)) {
+						alert('2')
+					} else if (document.getElementById('phone').value == '') {
+						alert('Check mandatory area!')
+					} else if (document.getElementById('zipcode').value == '') {
+						alert('Check mandatory area!')
+					} else if (zip.length < 5) {
+						alert('1')
+					} else if (document.getElementById('comments').value == '') {
+						alert('Check mandatory area!')
+					} else {
+						form.firstName = document.getElementById('firstName').value;
+						form.lastName = document.getElementById('lastName').value;
+						form.email = document.getElementById('email').value;
+						form.phone = document.getElementById('phone').value;
+						form.zipcode = document.getElementById('zipcode').value;
+						form.comments = document.getElementById('comments').value;
+						form.selector = document.getElementById("selector").value;
+						console.log(form.infor)
+						// if (judge == false) {
+						// 	form.infor = 'null';
+						// } else {
+						// 	form.infor = document.getElementById('infor').value;
+						// }
+						localStorage.setItem('form', JSON.stringify(form));
+						window.location.href = 'two.html'
+						// console.log(JSON.stringify(form))
+						// console.log(form)
+
+					}
+				}
+			}
+
+		}
+	</script>
+
+</body>
+
+</html>

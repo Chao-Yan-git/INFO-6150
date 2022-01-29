@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+    background-color: rgb(21, 22, 21);
+    text-align: center;
+    color: rgba(221, 197, 197, 0.884);
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}

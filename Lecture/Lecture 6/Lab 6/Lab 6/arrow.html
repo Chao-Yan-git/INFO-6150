@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <title>Arrow Functions</title>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <script>
+            $(function() {
+            function addNum(params) {
+                return params + 2;
+            }
+            console.log(addNum(2));
+            const arrowFnAdd = (params) => {
+                console.log(params[0]);
+            }
+            const nums = ['1', '2', '3'];
+            const arrLab = (num, callback) => {
+                num = num.map(x => {
+                    return 'Lab' + x;
+                })
+                console.log(num, 'nums');
+                callback(num);
+            }
+
+            arrLab(nums, arrowFnAdd);
+        })
+        </script>
+    </body>
+</html>

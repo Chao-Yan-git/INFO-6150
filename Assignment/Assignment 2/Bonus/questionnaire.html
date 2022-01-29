@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JavaJam Coffee Menu</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="javajam.css">
+</head>
+
+<body>
+    <div id='wrapper'>
+        <header>
+            <h1>JavaJam Coffee House</h1>
+        </header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="menu.html">Menu</a>
+                </li>
+                <li>
+                    <a href="music.html">Music</a>
+                </li>
+                <li>
+                    <a href="jobs.html">Jobs</a>
+                </li>
+                <li>
+                    <a href="questionnaire.html">Questionnaire</a>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <h2>Questionare About JavaJam Coffee House</h2>
+            <p>
+                We hope to collect data about what customers think about our JavaJam Cofee House. This questionnaire takes about 3 ~ 5 mins to finish. And we got gifts for you guys! Thank you so much.
+            </p>
+            <form>
+                <table width="80%" border="1" align="center">
+                    <tr>
+                        <td><label for="name">Name：</label></td>
+                        <td><input type="text" name="name"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="gender">Gender:</label></td>
+                        <td>
+                            <input type="radio" name="gender" value="male">male
+                            <input type="radio" name="gender" value="famale">female
+                            <input type="radio" name="gender" value="others">others
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="tel">Tel Number:</label></td>
+                        <td><input type="tel" name="tel"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">E-mail:</label></td>
+                        <td><input type="email" name="email"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="coffee">Which coffee do you like best?</label></td>
+                        <td><input type="text" name="coffee" list="coffees"></td>
+                        <datalist id="coffees">
+                            <option value="Just Java">
+                            <option value="Cafe au Lait">
+                            <option value="Iced Cappuccino">
+                        </datalist>
+                        <tr>
+                            <td><label for="color">What decoration color do you want the wall to be?</label></td>
+                            <td><input type="color" name="color"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="number">How often do you come to JavaJam?</label></td>
+                            <td><input type="number" name="number" min="0" max="50"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="comment">Please write a comment:</label></td>
+                            <td><textarea name="comment" cols="30" rows="3"></textarea></td>
+                        </tr>
+                </table>
+                <center>
+                    <input type="submit" value="Submit Questionaire" id="submit">
+                </center>
+            </form>
+        </main>
+        <footer>
+            Copyright &copy; 2021 JavaJam Coffee House<br>
+            <a href="ycmike97@gmail.com">ycmike97@gmail.com</a>
+        </footer>
+    </div>
+</body>
+
+
+</html>

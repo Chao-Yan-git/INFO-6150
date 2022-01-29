@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jquery Chaining Example</title>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <style type = "text/css">
+            ul {
+                width: 200px;
+                padding: 40px 5px;
+                font: bold 24px sans-serif;
+                background: #aaccaa;
+                border: 1px solid green;
+                list-style: none;
+            }
+
+            .red {
+                color: red
+            }
+            .highlight {
+                background: yellow;
+            }
+
+        </style>
+        <script>
+            $(document).ready(function() {
+                $('.start').click(function() {
+                    $('ul').animate({
+                        width: '50%'
+                    }).animate({
+                        fontSize: '20px'
+                    }).animate({
+                        borderWidth: '30'
+                    }).addClass('red')
+                })
+                $('.filter').click(() => {
+                    console.log('here..');
+                    if($("input[value='odd']").is(":checked")) {
+                        console.log('here..');
+                        $('ul li').removeClass('highlight');
+                        $('ul li').filter(function(index) {
+                            return index%2 == 0
+                        }).addClass('highlight');
+                    }
+                    if($("input[value='even']").is(":checked")) {
+                        $('ul li').filter(function(index) {
+                            return index%2 != 0
+                        }).addClass('highlight');
+                    }
+                })
+                $('.reset').click(() => {
+                    $('ul').removeClass('red');
+                    $('ul').removeAttr('style');
+                    $('ul li').removeClass('highlight');
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <h2>Unordered List</h2>
+        <ul>
+            <li>First List Item</li>
+            <li>Second List Item</li>
+            <li>Third List Item</li>
+            <li>Fourth List Item</li>
+            <li>Fifth List Item</li>
+            <li>Sixth List Item</li>
+            <li>Seventh List Item</li>
+            <li>Eighth List Item</li>
+            <li>Ninth List Item</li>
+            <li>Tenth List Item</li>
+        </ul>
+        <button type="button" class = "start"> Start Chaining </button><br>
+        <input type = "radio" name= "oddeven" value = "odd"> Odd
+        <input type = "radio" name= "oddeven" value = "even"> even
+        <button type="button" class = "filter"> Filter </button><br>
+        <button type = "button" class = "reset">Reset</button>
+    </body>
+</html>

@@ -1,0 +1,95 @@
+body {
+    background-color: #FFFFFF;
+    color: #666666;
+    max-width: 1000px;
+    margin: auto;
+}
+
+header {
+    background-color: #000000;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 13px;
+}
+
+footer {
+    margin-top: 30px;
+    color: #080808;
+    text-align: center;
+}
+
+h1 {
+    font-size: 45px;
+}
+
+nav {
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+}
+
+h2 {
+    color: #170677;
+}
+
+dt {
+    color: #000033;
+}
+
+.resort {
+    color: #5C7FA3;
+}
+
+txt1 {
+    font-family: "Arial", sans-serif;
+    font-size: 11px;
+    padding: 30px;
+}
+
+txt2 {
+    font-family: "Times New Romans", serif;
+    font-size: 13px;
+    padding: 10px;
+}
+
+li {
+    text-align: left;
+}
+
+.grid {
+    display: grid;
+    align-items: center;
+    padding: 10px;
+    margin: auto;
+}
+
+img {
+    max-width: 50%;
+    max-height: fit-content;
+    margin: auto;
+    display: grid;
+}
+
+table {
+    font-size: large;
+    border: 1;
+    width: 60%;
+    text-align: center;
+}
+
+.item {
+    margin: auto;
+    display: grid;
+    width: 500px;
+    text-align: center;
+}
+
+.items {
+    display: flex;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}

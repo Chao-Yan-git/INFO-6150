@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            table, tr, td {
+                border: 1px black solid;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <script>
+            function checkall(box) {
+                var inputs = $('input');
+                for(let i = 0; i < inputs.length; i ++) {
+                    inputs[i].checked = box.checked;
+                    checkone(inputs[i]);
+                }
+            }
+            function checkone(box) {
+                $('#result' + box.id).text(box.checked);
+            }
+        </script> 
+    </head>
+    <body>
+        <input id = "checkbox1" type="checkbox" name="name" value="name" onclick="checkall(this)">Check all in the page
+        <table>
+            <tr>
+                <td> <input id = "1" type="checkbox"  value="name" onclick="checkone(this)">Test</td>
+            </tr>
+            <tr>
+                <td> <input id = "2" type="checkbox"  value="name" onclick="checkone(this)">Test</td>
+            </tr>
+            <tr>
+                <td> <input id = "3" type="checkbox"  value="name" onclick="checkone(this)">Test</td>
+            </tr>
+        </table>
+        <p id = "result1">false</p>
+        <p id = "result2">false</p>
+        <p id = "result3">false</p>
+    </body>
+</html>
